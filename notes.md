@@ -1,3 +1,11 @@
+var fs=require('fs'), lame=require('lame'), Speaker=require('speaker')
+
+make sure slides open, full screen
+
+2 terminals
+
+sublime
+
 Before I sart, I want to ive you some context. this is a talk I was going to give last week
 at the Atlanta node.js meetup, but i couldn't due to some logistical issues, so Im going
 to try for next month. So this is aimed at software developers from atlanta who work with

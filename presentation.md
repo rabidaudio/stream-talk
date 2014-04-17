@@ -202,5 +202,5 @@ thanks
 
 slides & notes
 --------------
-[SpeakerDeck](https://speakerdeck.com/rabidaudio/node-streams)  
-[GitHub](http://github.com/rabidaudio/stream-talk)
+[speakerdeck.com/rabidaudio/node-streams](https://speakerdeck.com/rabidaudio/node-streams)  
+[github.com/rabidaudio/stream-talk](http://github.com/rabidaudio/stream-talk)
