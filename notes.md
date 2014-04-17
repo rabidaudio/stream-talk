@@ -1,10 +1,23 @@
+Before I sart, I want to ive you some context. this is a talk I was going to give last week
+at the Atlanta node.js meetup, but i couldn't due to some logistical issues, so Im going
+to try for next month. So this is aimed at software developers from atlanta who work with
+or are curious about Node.js. I'm going to follow their conventions, which might break some
+of your suggestions on proper presentation techniques. for example, I'm going to stand behind
+the podium the whole time so that I can have easy access to run demos
 
-Streams 
+Streams
 are a useful tool for development with node
+
+Node recently came out with a new stream system, so I, going to talk about the old streams
+and the new streams, along with some demos
+
 take advantage of Javascript's asynchronous, event-driven architecture
 using streams will make your code easier to follow, and a lot of networking tasks
 require it. TCP for example. and there are some really cool modules that are available
 now, including for the browser, that i will mention at the end
+
+
+but if you have experience with events in javascript, streams should be pretty easy
 
 !
 
@@ -42,6 +55,8 @@ here is a bigger example. I have a compressed version of a dictionary out on my 
 huge list of enlish words. by putting streams together in the right way, I can for example figure out
 how many words start with 'a'. this is a kind of rudementary program, but you can see how through
 encapsulation and chaining you can do just about anything
+
+!
 
 node streams
 
@@ -116,7 +131,7 @@ solve the same problems repeatedly, making similar mistakes and similar bugs.
 
 NEW STREAMS
 
-Methods like `pause()`, `resume()`, or an event like `on('data')`
+Methods like `pause()`, `resume()`, or an event like `on('data')` or `on('end')`
 
 It is possible to specify during creation of these objects that they take in and spit out
 arbitrary objects

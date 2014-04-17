@@ -166,7 +166,7 @@ Streams2
 
 - Implemented in `v0.10`
 - new event: 'readable'
-- `pause()`, `resume()`, `on('data')` revert to old functionality
+- `pause()`, `resume()`, `on('data')` or `on('end')` revert to old functionality
 - Allows for arbitrary Objects as well as Buffers and Strings
 
 !
