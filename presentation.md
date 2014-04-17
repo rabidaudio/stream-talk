@@ -54,27 +54,47 @@ Some examples
 Node Streams
 ============
 
-- Readable
-- Writable
-- Duplex
+- stream.Readable
+- stream.Writable
+- stream.Duplex
+- stream.Transform
 
 !
 
 Readable
 ========
 
-`fs.readFileSync`, `fs.readFile` vs `fs.createReadStream`
+Examples
+--------
 
-`http.IncomingMessage`
+- `fs.createReadStream`
+- `http.IncomingMessage`
 
+Implement
+---------
+
+```javascript
+util.inherits(myStream, stream.Readable);
+myStream.prototype.read = function() ...
+```
 !
 
 Writable
 ========
 
-`fs.createWriteStream`
+Examples
+--------
 
-`http.ServerResponse`
+- `fs.createWriteStream`
+- `http.ServerResponse`
+
+Implement
+---------
+
+```javascript
+util.inherits(myStream, stream.Writable);
+myStream.prototype.write = function() ...
+```
 
 !
 
@@ -83,7 +103,19 @@ Duplex
 
 Both worlds!
 
+Example
+-------
+
 `net.Socket`
+
+Implement
+---------
+
+```javascript
+util.inherits(myStream, stream.Duplex);
+myStream.prototype.read = function() ...
+myStream.prototype.write = function() ...
+```
 
 !
 

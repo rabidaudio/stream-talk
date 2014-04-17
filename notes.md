@@ -6,6 +6,7 @@ using streams will make your code easier to follow, and a lot of networking task
 require it. TCP for example. and there are some really cool modules that are available
 now, including for the browser, that i will mention at the end
 
+!
 
 The concept of pipes is ancient, from the early days of terminals. Duglas McIlroy
 came up with the concept, and in 1973 Ken Thompson threw it into Unix.
@@ -14,17 +15,41 @@ What originally turned me into a linux convert was a terminal that was actually
 useful, and pipes are one of the core features of this. Mac users have the bash
 shell as well, so everything here applies there as well.
 
-
 The design concept is that all of these components are modular, and act
 independently without knowing how they will be used, and  can be combined
 in different ways to accomplish very different tasks
+
+that's a very node-like concept as well, where every module is as small and specicallized
+as it can be, and creating programs is simply combining modules together with a small amount
+of glue
+
+!
+
+examples
+
+I'm sure none of you are strangers to the console, but just in case I'm going to talk about pipes
+and give some examples
+
+ls will give me a list of all the programs in my program directory, and grep will search through a
+list of items for those that match. so these are two programs that act independantly that i'm
+combining together
 
     ls /bin | grep users
 
     wget -qO- http://www.prism.gatech.edu/~cknight7/dictionary.txt.gz | gzip -c | grep -e '^a' | wc -l 
 
-I have a dictionary out on my prism drive that is a huge list of enlish words. but its compressed.
-by putting streams together in the right way, I can for example figure out how many words start with 'a'
+here is a bigger example. I have a compressed version of a dictionary out on my prism drive that is a 
+huge list of enlish words. by putting streams together in the right way, I can for example figure out
+how many words start with 'a'. this is a kind of rudementary program, but you can see how through
+encapsulation and chaining you can do just about anything
+
+node streams
+
+so let's talk about nodes implementation of pipes.
+its all about these streams of data
+here are the different types of streams
+the Transform one is under-documented and outside the scope of this talk, but you should check it
+out if you are curious
 
 Readable- e.g. files
 fs.readFile and fs.readFileSync read the whole file into memory, then return it
@@ -36,8 +61,7 @@ asynchronously in chunks. You can let it decide how large a chunk you want to us
 on data, or you can specify the amount of data you want by using readable.read(bytes), or omit the byte
 count to read everything from the buffer. 
 
-
-Readable-
+Readable
 events data and end are where the magic happens
 you can use read() to read directly from the stream as well
 pause and resume do what you think
@@ -55,7 +79,7 @@ Duplex- methods from both
 
 Let's make that simple `wc -l` command in node
 
-```linecount.js
+```javascript
 
 #!/usr/bin/env node
 var lines = 0;
@@ -73,7 +97,7 @@ process.stdin.on('end', function(){
 ```
 
 
-pause is a suggested method, but not neccessarily implemented
+pause is a suggested method, but not neccessarily implemented. this can be very confusing
 
 
 The pause() method doesn't pause. It is advisory-only. In Node's implementation,
@@ -99,7 +123,7 @@ arbitrary objects
 
 Lets rewrite our line counter to use new streams
 
-```linecount.js
+```javascript
 #!/usr/bin/env node
 var lines = 0;
 
@@ -127,7 +151,7 @@ were there.
 
 So getting audio to play was as simple as
 
-```js
+```javascript
 var fs = require('fs');
 var Speaker = require('speaker');
 var lame = require('lame');
