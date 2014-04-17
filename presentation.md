@@ -8,18 +8,18 @@ code {
 }
 a{
     color: darkcyan;
+    font-size: 0.8em;
 }
 </style>
 
 Streams in Node.js
 ==================
 
-the old, the new, and the why
------------------------------
+the old, the new, and the why  
+-----------------------------  
 
-Charles Julian Knight
-
-`@charlesjuliank`
+Charles Julian Knight  
+[`@charlesjuliank`](http://twitter.com/charlesjuliank)
 
 !
 
@@ -87,7 +87,7 @@ Both worlds!
 
 !
 
-old streams
+Old streams
 ===========
 
 Readable
@@ -132,11 +132,10 @@ Problems
 Streams2
 ========
 
-new event: 'readable'
-
-`pause()`, `resume()`, `on('data')` revert to old functionaility
-
-Allows for arbitrary Objects as well as Buffers and Strings
+- Implemented in `v0.10`
+- new event: 'readable'
+- `pause()`, `resume()`, `on('data')` revert to old functionality
+- Allows for arbitrary Objects as well as Buffers and Strings
 
 !
 
@@ -145,7 +144,7 @@ Refactor!
 
 !
 
-Another example
+And now for pipes
 ===============
 
 MP3 Player
@@ -156,29 +155,20 @@ MP3 Player
 
 !
 
-sources & further reading
---------------------------
+contact
+-------
 
-- [http://doc.cat-v.org/unix/pipes/](http://doc.cat-v.org/unix/pipes/)
-- [http://en.wikipedia.org/wiki/Douglas_McIlroy](http://en.wikipedia.org/wiki/Douglas_McIlroy)
-- [http://en.wikipedia.org/wiki/Pipeline_(Unix)#History](http://en.wikipedia.org/wiki/Pipeline_(Unix)#History)
-- [http://blog.nodejs.org/2012/12/21/streams2/](http://blog.nodejs.org/2012/12/21/streams2/)
+[charles@rabidaudio.com](mailto:charles@rabidaudio.com)
 
 thanks
 ------
   
-[@substack](http://twitter.com/substack)  
-[@dominictarr](http://twitter.com/dominictarr)  
-[@tootallnate](http://twitter.com/tootallnate)
+[`@substack`](http://twitter.com/substack)  
+[`@dominictarr`](http://twitter.com/dominictarr)  
+[`@tootallnate`](http://twitter.com/tootallnate)  
 [MarkdownPresenter](https://github.com/jsakamoto/MarkdownPresenter)
-
-contact
--------
-
-`@charlesjuliank`  
-[github.com/rabidaudio](https://github.com/rabidaudio)
 
 slides & notes
 --------------
-[SpeakerDeck](https://speakerdeck.com/rabidaudio/node-streams)
+[SpeakerDeck](https://speakerdeck.com/rabidaudio/node-streams)  
 [GitHub](http://github.com/rabidaudio/stream-talk)

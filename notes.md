@@ -1,7 +1,10 @@
 
 Streams 
 are a useful tool for development with node
-take advantage of Javascript's asynchronous, event-driven archetecture
+take advantage of Javascript's asynchronous, event-driven architecture
+using streams will make your code easier to follow, and a lot of networking tasks
+require it. TCP for example. and there are some really cool modules that are available
+now, including for the browser, that i will mention at the end
 
 
 The concept of pipes is ancient, from the early days of terminals. Duglas McIlroy
@@ -13,21 +16,19 @@ shell as well, so everything here applies there as well.
 
 
 The design concept is that all of these components are modular, and act
-independantly without knowing how they will be used, and  can be combined
-in different ways to acomplish very different tasks
+independently without knowing how they will be used, and  can be combined
+in different ways to accomplish very different tasks
 
-
-
-    ls /bin | grep user
-
-    ls | wc -l
+    ls /bin | grep users
 
     wget -qO- http://www.prism.gatech.edu/~cknight7/dictionary.txt.gz | gzip -c | grep -e '^a' | wc -l 
 
+I have a dictionary out on my prism drive that is a huge list of enlish words. but its compressed.
+by putting streams together in the right way, I can for example figure out how many words start with 'a'
 
 Readable- e.g. files
 fs.readFile and fs.readFileSync read the whole file into memory, then return it
-even the asyncronous version does this
+even the asynchronous version does this
 
 So fs.fileRead and fs.fileReadSync buffer the entire contents of the file into memory, and then pass that
 back (to the return value or callback, depending on which you use). But fs.createReadStream reads a file
@@ -72,6 +73,8 @@ process.stdin.on('end', function(){
 ```
 
 
+pause is a suggested method, but not neccessarily implemented
+
 
 The pause() method doesn't pause. It is advisory-only. In Node's implementation,
 this makes things much simpler, but it's confusing to users, and doesn't do what it looks like it does.
@@ -94,8 +97,7 @@ Methods like `pause()`, `resume()`, or an event like `on('data')`
 It is possible to specify during creation of these objects that they take in and spit out
 arbitrary objects
 
-
-The new way:
+Lets rewrite our line counter to use new streams
 
 ```linecount.js
 #!/usr/bin/env node
@@ -147,19 +149,11 @@ and substack's stream-handbook for awesome other streams you can do
 
 
 
-sources
--------
+sources & further reading
+--------------------------
 
-http://doc.cat-v.org/unix/pipes/
-http://en.wikipedia.org/wiki/Douglas_McIlroy
-http://en.wikipedia.org/wiki/Pipeline_(Unix)#History
-http://blog.nodejs.org/2012/12/21/streams2/
-
-contributors
-------------
-
-@tootallnate
-@substack
-@dominictarr
-
-https://github.com/jsakamoto/MarkdownPresenter
+- [http://doc.cat-v.org/unix/pipes/](http://doc.cat-v.org/unix/pipes/)
+- [http://en.wikipedia.org/wiki/Douglas_McIlroy](http://en.wikipedia.org/wiki/Douglas_McIlroy)
+- [http://en.wikipedia.org/wiki/Pipeline_(Unix)#History](http://en.wikipedia.org/wiki/Pipeline_(Unix)#History)
+- [http://blog.nodejs.org/2012/12/21/streams2/](http://blog.nodejs.org/2012/12/21/streams2/)
+- [https://github.com/substack/stream-handbook](https://github.com/substack/stream-handbook)
